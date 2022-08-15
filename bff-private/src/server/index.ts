@@ -49,11 +49,11 @@ container.bind<RouterMiddleware>(boltBFF.identifier).toFunction(boltBFF.cb());
 const BAPI_IDENTIFIER = 'bapi'
 const MS_IDENTIFIER = 'ms'
 container.bind<string>(BAPI_IDENTIFIER).toDynamicValue(() => {
-    return `http://${process.env.BOLT_VM}/boltapi/v1`
+    return `http://${process.env.VM}/boltapi/v1`
 }).inSingletonScope();
 
 container.bind<string>(MS_IDENTIFIER).toDynamicValue(() => {
-    return `http://${process.env.BOLT_MS_PREFIX}/${process.env.BOLT_VM?.split('.').join('--')}`
+    return `http://${process.env.MS_PREFIX}/${process.env.VM?.split('.').join('--')}`
 }).inSingletonScope();
 
 // create server

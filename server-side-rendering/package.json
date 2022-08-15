@@ -2,10 +2,8 @@
   "private": true,
   "scripts": {
     "start": "yarn build && yarn serve:hot",
-    "serve:hot": "concurrently \"lerna run --scope @server-side-rendering/icarus-1 serve\" \"lerna run --scope @server-side-rendering/icarus-2 hmr --parallel\"",
-    "build": "lerna run --scope @server-side-rendering/icarus-2 build && lerna run --scope @server-side-rendering/icarus-1 build",
-    "serve": "lerna run --scope @server-side-rendering/* --parallel serve",
-    "clean": "lerna run --scope @server-side-rendering/* --parallel clean"
+    "build": "lerna run --scope @server-side-rendering/* --parallel build && lerna run --scope @server-side-rendering/* --parallel build:node",
+    "serve": "lerna run --scope @server-side-rendering/* --parallel serve"
   },
   "devDependencies": {
     "lerna": "3.22.1"
