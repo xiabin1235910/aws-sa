@@ -1,5 +1,8 @@
 import "reflect-metadata";
 
+import * as dotenv from 'dotenv';
+dotenv.config()
+
 import { InversifyKoaServer } from "../utils/server";
 
 import { TYPE } from "../utils/constants"
