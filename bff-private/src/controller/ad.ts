@@ -7,6 +7,8 @@ import { HeadersInit } from "node-fetch"
 import AdService from "../service/ad";
 import { boltBFF } from "../middlewares";
 
+import { logger } from "../log/logger";
+
 function addResponseHeader(config?: string) {
     return async (ctx: Router.IRouterContext, next: () => Promise<any>) => {
         await next();
@@ -24,7 +26,7 @@ export default class AdController implements Controller {
     @httpGet('/:adId')
     private async getAd(@requestParam('adId') adId: string, @copyBapiHeaders() bapiHeader: HeadersInit, ctx: Router.IRouterContext) {
         const res = await this.adService.getAd(adId, bapiHeader);
-        console.log(res)
+        logger.log(res)
         ctx.body = res;
     }
 }

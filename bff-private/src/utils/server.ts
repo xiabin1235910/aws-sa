@@ -119,11 +119,10 @@ export class InversifyKoaServer {
     private generateBapiHeaders(ctx: Router.IRouterContext): IncomingHttpHeaders {
         const headerTemplate: { [key: string]: string } = {
             'Content-type': 'application/json',
-            'X-BOLT-SITE-LOCALE': ctx.get('BFF-SITE-LOCALE'),
-            'X-BOLT-APPS-ID': 'RUI',
-            'X-BOLT-MACHINE-ID': ctx.get('BFF-MACHINE-ID'),
-            'X-BOLT-TRACE-ID': ctx.get('BFF-TRACE-ID'),
-            'X-BOLT-IP-ADDRESS': ctx.get('BFF-IP-ADDRESS'),
+            'X-SITE-LOCALE': ctx.get('BFF-SITE-LOCALE'),
+            'X-MACHINE-ID': ctx.get('BFF-MACHINE-ID'),
+            'X-TRACE-ID': ctx.get('BFF-TRACE-ID'),
+            'X-IP-ADDRESS': ctx.get('BFF-IP-ADDRESS'),
             'Authorization': `Bearer ${ctx.get('BFF-TOKEN')}`,
         };
         return headerTemplate
